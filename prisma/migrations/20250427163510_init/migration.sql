@@ -8,7 +8,6 @@ CREATE TABLE "Book" (
     "genre" TEXT[],
     "tags" TEXT[],
     "imageUrl" VARCHAR(500) NOT NULL,
-    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Book_pkey" PRIMARY KEY ("id")
 );
