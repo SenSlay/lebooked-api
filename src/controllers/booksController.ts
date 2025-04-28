@@ -51,7 +51,7 @@ export const createBook = async (req: Request, res: Response): Promise<any> => {
       },
     });
 
-    res.status(201).json(newBook);
+    res.json(newBook);
   } catch (error) {
     console.error("Error creating book:", error);
     res.status(500).json({ error: "Error creating book" });
