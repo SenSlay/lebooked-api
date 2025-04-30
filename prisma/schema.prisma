@@ -20,10 +20,22 @@ model Book {
   author      String     @db.VarChar(255)
   description String     @db.Text
   price       Float
-  genre       String[]
-  tags        String[]
+  genres      Genre[]    @relation("BookGenres")
+  tags        Tag[]      @relation("BookTags")
   imageUrl    String     @db.VarChar(500)
   userBooks   UserBook[]
+}
+
+model Genre {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  books Book[] @relation("BookGenres")
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  books Book[] @relation("BookTags")
 }
 
 model User {
