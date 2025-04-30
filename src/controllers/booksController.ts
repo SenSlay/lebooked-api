@@ -32,7 +32,7 @@ export const getBookById = async (req: Request, res: Response): Promise<any> => 
 
 export const createBook = async (req: Request, res: Response): Promise<any> => {
   try {
-    const { title, author, description, price, genre, tags } = req.body;
+    const { title, author, description, price, genres, tags } = req.body;
     
     let imageUrl = req.body.imageUrl;
     if (!imageUrl) {
@@ -45,7 +45,7 @@ export const createBook = async (req: Request, res: Response): Promise<any> => {
         author,
         description,
         price,
-        genre,
+        genres,
         tags,
         imageUrl,
       },
