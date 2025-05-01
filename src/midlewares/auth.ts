@@ -30,7 +30,7 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction): an
 };
 
 export const isAdmin = (req: Request, res: Response, next: NextFunction): any => {
-  if (req.user?.id !== 1) {
+  if (req.user?.username !== 'admin') {
     return res.status(403).json({ message: 'Access denied.' });
   }
 
