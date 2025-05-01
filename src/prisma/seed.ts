@@ -1,10 +1,10 @@
-import { PrismaClient } from '../../generated/prisma/index.js';
+import { PrismaClient } from '../../generated/prisma/index';
 import bcrypt from 'bcryptjs';
 import 'dotenv/config';
 import genres from './data/genres.json';
 import tags from './data/tags.json';
 import books from './data/books.json';
-import { fetchGoogleThumbnail } from '../utils/fetchGoogleThumbnail.js';
+import { fetchGoogleThumbnail } from '../utils/fetchGoogleThumbnail';
 const prisma = new PrismaClient();
 
 async function main() {
