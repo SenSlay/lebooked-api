@@ -1,0 +1,7 @@
+node_modules
+.env
+dist/
+generated/
+/prisma/*.js
+/prisma/*.cjs
+/prisma/*.js.map
