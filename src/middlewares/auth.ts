@@ -16,7 +16,6 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction): an
     res.status(401).json({ message: 'Unauthorized' });
     return 
   }
-
   const token = authHeader.split(' ')[1];
 
   try {
