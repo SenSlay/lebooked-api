@@ -1,0 +1,323 @@
+[
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A guide to building better habits and improving everyday life.",
+    "price": 14.99,
+    "genres":["Self Help"],
+    "tags": ["Motivation"]
+  },
+  {
+    "title": "The Lean Startup",
+    "author": "Eric Ries",
+    "description": "How today’s entrepreneurs use continuous innovation to create successful businesses.",
+    "price": 18.99,
+    "genres": ["Business", "Technology"],
+    "tags": ["Bestseller", "Trending"]
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian novel that critiques totalitarian regimes.",
+    "price": 10.49,
+    "genres": ["Fiction", "Historical"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "description": "The authorized biography of Steve Jobs.",
+    "price": 22.99,
+    "genres": ["Biography", "Technology"],
+    "tags": ["Trending"]
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "description": "A fantasy adventure leading up to The Lord of the Rings.",
+    "price": 12.50,
+    "genres": ["Fantasy"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "description": "A romantic novel of manners.",
+    "price": 9.99,
+    "genres": ["Romance", "Historical"],
+    "tags": ["Lifestyle"]
+  },
+  {
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "description": "A thriller full of puzzles, codes, and conspiracy.",
+    "price": 13.75,
+    "genres": ["Mystery", "Thriller"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "The Shining",
+    "author": "Stephen King",
+    "description": "A chilling horror story set in an isolated hotel.",
+    "price": 11.99,
+    "genres": ["Horror"],
+    "tags": ["Trending"]
+  },
+  {
+    "title": "Goodnight Moon",
+    "author": "Margaret Wise Brown",
+    "description": "A classic children’s bedtime story.",
+    "price": 8.99,
+    "genres": ["Children"],
+    "tags": ["Health"]
+  },
+  {
+    "title": "The Hunger Games",
+    "author": "Suzanne Collins",
+    "description": "A dystopian survival story.",
+    "price": 12.99,
+    "genres": ["Young Adult", "Fiction"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "Milk and Honey",
+    "author": "Rupi Kaur",
+    "description": "A collection of poetry about love, loss, trauma, and healing.",
+    "price": 9.25,
+    "genres": ["Poetry"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "description": "Rules for focused success in a distracted world.",
+    "price": 14.49,
+    "genres": ["Self Help", "Non-Fiction"],
+    "tags": ["Motivation"]
+  },
+  {
+    "title": "Educated",
+    "author": "Tara Westover",
+    "description": "A memoir about growing up off the grid and finding education.",
+    "price": 16.99,
+    "genres": ["Biography"],
+    "tags": ["Health"]
+  },
+  {
+    "title": "Harry Potter and the Sorcerer\"s Stone",
+    "author": "J.K. Rowling",
+    "description": "The first magical adventure in the Harry Potter series.",
+    "price": 13.99,
+    "genres": ["Fantasy", "Young Adult"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "description": "A novel on racial injustice and moral growth.",
+    "price": 11.99,
+    "genres": ["Historical", "Fiction"],
+    "tags": ["Lifestyle"]
+  },
+  {
+    "title": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "description": "Counterintuitive advice on living a better life.",
+    "price": 13.50,
+    "genres": ["Self Help", "Non-Fiction"],
+    "tags": ["Motivation", "Trending"]
+  },
+  {
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "description": "A psychological thriller with a shocking twist.",
+    "price": 12.30,
+    "genres": ["Mystery", "Thriller"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert Kiyosaki",
+    "description": "Personal finance lessons learned through two father figures.",
+    "price": 10.99,
+    "genres": ["Business"],
+    "tags": ["Technology"]
+  },
+  {
+    "title": "The 5 AM Club",
+    "author": "Robin Sharma",
+    "description": "The power of starting your day early for success.",
+    "price": 14.79,
+    "genres": ["Lifestyle", "Self Help"],
+    "tags": ["Motivation", "Health"]
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "description": "A journey of following your dreams.",
+    "price": 10.25,
+    "genres": ["Fiction", "Poetry"],
+    "tags": ["Emotional", "Lifestyle"]
+  },
+  {
+    "title": "Can't Hurt Me",
+    "author": "David Goggins",
+    "description": "A memoir of pushing beyond mental limits to achieve greatness.",
+    "price": 15.99,
+    "genres": ["Biography", "Self Help"],
+    "tags": ["Motivation"]
+  },
+  {
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "description": "Explores the dual systems that drive our thinking.",
+    "price": 13.95,
+    "genres": ["Non-Fiction", "Self Help"],
+    "tags": ["Trending"]
+  },
+  {
+    "title": "The Girl on the Train",
+    "author": "Paula Hawkins",
+    "description": "A psychological thriller filled with twists and secrets.",
+    "price": 11.49,
+    "genres": ["Mystery", "Thriller"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "Little Women",
+    "author": "Louisa May Alcott",
+    "description": "A timeless story of four sisters growing up during the Civil War.",
+    "price": 9.99,
+    "genres": ["Fiction", "Historical"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "The Four Agreements",
+    "author": "Don Miguel Ruiz",
+    "description": "A practical guide to personal freedom.",
+    "price": 8.95,
+    "genres": ["Self Help"],
+    "tags": ["Lifestyle"]
+  },
+  {
+    "title": "Crushing It!",
+    "author": "Gary Vaynerchuk",
+    "description": "How great entrepreneurs build business and influence.",
+    "price": 16.50,
+    "genres": ["Business"],
+    "tags": ["Motivation"]
+  },
+  {
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "description": "A sci-fi fantasy epic exploring politics, religion, and power.",
+    "price": 13.99,
+    "genres": ["Fantasy"],
+    "tags": ["Trending"]
+  },
+  {
+    "title": "It Ends with Us",
+    "author": "Colleen Hoover",
+    "description": "A moving romance with emotional depth.",
+    "price": 12.49,
+    "genres": ["Romance", "Fiction"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "Why We Sleep",
+    "author": "Matthew Walker",
+    "description": "A scientific exploration of sleep’s vital role.",
+    "price": 14.25,
+    "genres": ["Non-Fiction"],
+    "tags": ["Health"]
+  },
+  {
+    "title": "The Cat in the Hat",
+    "author": "Dr. Seuss",
+    "description": "A mischievous cat brings chaos to a rainy day.",
+    "price": 7.99,
+    "genres": ["Children"],
+    "tags": ["Lifestyle"]
+  },
+  {
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "description": "A novel about the choices we make and the lives we could’ve lived.",
+    "price": 11.99,
+    "genres": ["Fiction"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "Verity",
+    "author": "Colleen Hoover",
+    "description": "A suspenseful romance filled with secrets and manipulation.",
+    "price": 10.99,
+    "genres": ["Romance", "Thriller"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "Becoming",
+    "author": "Michelle Obama",
+    "description": "The inspiring memoir of the former First Lady.",
+    "price": 17.99,
+    "genres": ["Biography"],
+    "tags": ["Trending"]
+  },
+  {
+    "title": "The Body Keeps the Score",
+    "author": "Bessel van der Kolk",
+    "description": "How trauma affects the brain and body—and paths to healing.",
+    "price": 14.89,
+    "genres": ["Non-Fiction", "Self Help"],
+    "tags": ["Health"]
+  },
+  {
+    "title": "The Giver",
+    "author": "Lois Lowry",
+    "description": "A young adult dystopian novel challenging conformity.",
+    "price": 10.99,
+    "genres": ["Young Adult", "Fiction"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "Where the Crawdads Sing",
+    "author": "Delia Owens",
+    "description": "A mystery intertwined with a coming-of-age story.",
+    "price": 12.79,
+    "genres": ["Mystery", "Fiction"],
+    "tags": ["Bestseller"]
+  },
+  {
+    "title": "A Court of Thorns and Roses",
+    "author": "Sarah J. Maas",
+    "description": "A high fantasy romance filled with magic and intrigue.",
+    "price": 13.99,
+    "genres": ["Fantasy", "Romance"],
+    "tags": ["Trending"]
+  },
+  {
+    "title": "The Power of Now",
+    "author": "Eckhart Tolle",
+    "description": "Spiritual guidance on living in the present moment.",
+    "price": 11.45,
+    "genres": ["Self Help"],
+    "tags": ["Lifestyle"]
+  },
+  {
+    "title": "Coraline",
+    "author": "Neil Gaiman",
+    "description": "A dark fantasy where a girl discovers a hidden world.",
+    "price": 9.50,
+    "genres": ["Horror", "Young Adult"],
+    "tags": ["Emotional"]
+  },
+  {
+    "title": "The Magic of Thinking Big",
+    "author": "David J. Schwartz",
+    "description": "Learn how to set high goals and achieve them.",
+    "price": 13.20,
+    "genres": ["Self Help", "Non-Fiction"],
+    "tags": ["Motivation"]
+  }
+
+]
