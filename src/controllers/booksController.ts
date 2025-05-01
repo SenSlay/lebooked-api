@@ -4,13 +4,94 @@ import { fetchGoogleThumbnail } from "../utils/fetchGoogleThumbnail.js";
 
 const prisma = new PrismaClient()
 
-export const getAllBooks = async (req: Request, res: Response) => {
+// Function to fetch books from the database with pagination, search, and filtering
+export const getBooks = async (req: Request, res: Response): Promise<any> => {
   try {
-    const books = await prisma.book.findMany()
-    res.json(books);
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = (req.query.search as string) || '';
+    const genre = req.query.genre as string | undefined;
+    const tag = req.query.tag as string | undefined;
+    const sortBy = (req.query.sortBy as string) || 'title';
+    const sortOrder = (req.query.sortOrder as 'asc' | 'desc') || 'asc';
+
+    const skip = (page - 1) * limit;
+
+    const books = await prisma.book.findMany({
+      where: {
+        AND: [
+          {
+            OR: [
+              { title: { contains: search, mode: 'insensitive' } },
+              { author: { contains: search, mode: 'insensitive' } },
+            ],
+          },
+          genre ? {
+            genres: {
+              some: {
+                name: { equals: genre, mode: 'insensitive' },
+              },
+            },
+          } : {},
+          tag ? {
+            tags: {
+              some: {
+                name: { equals: tag, mode: 'insensitive' },
+              },
+            },
+          } : {},
+        ],
+      },
+      include: {
+        genres: true,
+        tags: true,
+      },
+      skip,
+      take: limit,
+      orderBy: {
+        [sortBy]: sortOrder,
+      },
+    });
+
+    const totalCount = await prisma.book.count({
+      where: {
+        AND: [
+          {
+            OR: [
+              { title: { contains: search, mode: 'insensitive' } },
+              { author: { contains: search, mode: 'insensitive' } },
+            ],
+          },
+          genre ? {
+            genres: {
+              some: {
+                name: { equals: genre, mode: 'insensitive' },
+              },
+            },
+          } : {},
+          tag ? {
+            tags: {
+              some: {
+                name: { equals: tag, mode: 'insensitive' },
+              },
+            },
+          } : {},
+        ],
+      },
+    });
+
+    res.json({
+      data: books,
+      pagination: {
+        total: totalCount,
+        page,
+        limit,
+        totalPages: Math.ceil(totalCount / limit),
+      },
+    });
   } catch (error) {
-    console.error("Error fetching books:", error);
-    res.status(500).json({ error: "Error fetching books" });
+    console.error('Error fetching books:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 
