@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { PrismaClient } from '../../generated/prisma/index.js'
-import { fetchGoogleThumbnail } from "../utils/fetchGoogleThumbnail.js";
+import { PrismaClient } from '../../generated/prisma/index'
+import { fetchGoogleThumbnail } from "../utils/fetchGoogleThumbnail";
 
 const prisma = new PrismaClient()
 

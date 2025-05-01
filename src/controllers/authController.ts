@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { PrismaClient } from '../../generated/prisma/index.js';
+import { PrismaClient } from '../../generated/prisma/index';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
 
 const prisma = new PrismaClient();
 

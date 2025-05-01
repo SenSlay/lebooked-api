@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { createBook, deleteBook, getBooks, getBookById } from '../controllers/booksController.js';
-import { isAdmin, verifyToken } from '../midlewares/auth.js';
+import { createBook, deleteBook, getBooks, getBookById } from '../controllers/booksController';
+import { isAdmin, verifyToken } from '../middlewares/auth';
 
 const booksRouter = Router();
 

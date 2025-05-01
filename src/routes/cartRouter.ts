@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { verifyToken } from '../midlewares/auth.js';
-import { addToCart, decrementCartItemQuantity, getCartItems, icrementCartItemQuantity, removeCartItem, updateCartItemQuantity } from '../controllers/cartController.js';
+import { verifyToken } from '../middlewares/auth';
+import { addToCart, decrementCartItemQuantity, getCartItems, icrementCartItemQuantity, removeCartItem, updateCartItemQuantity } from '../controllers/cartController';
 
 const cartRouter = Router();
 
