@@ -1,8 +1,6 @@
 import { Request, Response } from "express"
-import { PrismaClient } from '../../generated/prisma/index'
 import { fetchGoogleThumbnail } from "../utils/fetchGoogleThumbnail";
-
-const prisma = new PrismaClient()
+import prisma from "../lib/prisma";
 
 // Function to fetch books from the database with pagination, search, and filtering
 export const getBooks = async (req: Request, res: Response): Promise<any> => {

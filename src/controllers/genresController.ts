@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
-import { PrismaClient } from '../../generated/prisma/index';
-
-const prisma = new PrismaClient();
+import prisma from "../lib/prisma";
 
 export const getAllGenres = async (req: Request, res: Response): Promise<any> => {
   try {

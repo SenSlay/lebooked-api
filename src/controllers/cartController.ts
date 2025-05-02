@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
-import { PrismaClient } from '../../generated/prisma/index';
 import { body } from 'express-validator';
-
-const prisma = new PrismaClient();
+import prisma from "../lib/prisma";
 
 export const getCartItems = async (req: Request, res: Response): Promise<any> => {
   try {

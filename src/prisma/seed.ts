@@ -1,4 +1,4 @@
-import { PrismaClient } from '../../generated/prisma/index';
+import { PrismaClient } from '../generated/prisma/index';
 import bcrypt from 'bcryptjs';
 import 'dotenv/config';
 import genres from './data/genres.json';
