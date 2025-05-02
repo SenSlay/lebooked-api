@@ -4,7 +4,7 @@
     "author": "James Clear",
     "description": "A guide to building better habits and improving everyday life.",
     "price": 14.99,
-    "genres":["Self Help"],
+    "genres": ["Self Help"],
     "tags": ["Motivation"]
   },
   {
@@ -35,7 +35,7 @@
     "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
     "description": "A fantasy adventure leading up to The Lord of the Rings.",
-    "price": 12.50,
+    "price": 12.5,
     "genres": ["Fantasy"],
     "tags": ["Bestseller"]
   },
@@ -123,7 +123,7 @@
     "title": "The Subtle Art of Not Giving a F*ck",
     "author": "Mark Manson",
     "description": "Counterintuitive advice on living a better life.",
-    "price": 13.50,
+    "price": 13.5,
     "genres": ["Self Help", "Non-Fiction"],
     "tags": ["Motivation", "Trending"]
   },
@@ -131,7 +131,7 @@
     "title": "The Silent Patient",
     "author": "Alex Michaelides",
     "description": "A psychological thriller with a shocking twist.",
-    "price": 12.30,
+    "price": 12.3,
     "genres": ["Mystery", "Thriller"],
     "tags": ["Bestseller"]
   },
@@ -203,7 +203,7 @@
     "title": "Crushing It!",
     "author": "Gary Vaynerchuk",
     "description": "How great entrepreneurs build business and influence.",
-    "price": 16.50,
+    "price": 16.5,
     "genres": ["Business"],
     "tags": ["Motivation"]
   },
@@ -307,7 +307,7 @@
     "title": "Coraline",
     "author": "Neil Gaiman",
     "description": "A dark fantasy where a girl discovers a hidden world.",
-    "price": 9.50,
+    "price": 9.5,
     "genres": ["Horror", "Young Adult"],
     "tags": ["Emotional"]
   },
@@ -315,9 +315,8 @@
     "title": "The Magic of Thinking Big",
     "author": "David J. Schwartz",
     "description": "Learn how to set high goals and achieve them.",
-    "price": 13.20,
+    "price": 13.2,
     "genres": ["Self Help", "Non-Fiction"],
     "tags": ["Motivation"]
   }
-
 ]

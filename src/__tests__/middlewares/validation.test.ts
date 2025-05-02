@@ -1,14 +1,22 @@
 import express, { Request, Response } from 'express';
 import request from 'supertest';
-import { validateSignup, handleValidationErrors } from '../../middlewares/validation';
+import {
+  validateSignup,
+  handleValidationErrors,
+} from '../../middlewares/validation';
 
 const app = express();
 app.use(express.json());
 
 // Dummy route to test validation middleware
-app.post('/test-signup', validateSignup, handleValidationErrors, (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Signup valid' });
-});
+app.post(
+  '/test-signup',
+  validateSignup,
+  handleValidationErrors,
+  (req: Request, res: Response) => {
+    res.status(200).json({ message: 'Signup valid' });
+  }
+);
 
 describe('Signup validation middleware', () => {
   it('should allow valid signup data', async () => {
@@ -28,7 +36,10 @@ describe('Signup validation middleware', () => {
     });
 
     expect(res.statusCode).toBe(400);
-    expect(res.body.errors[0]).toHaveProperty('msg', 'Username must be at least 3 characters.');
+    expect(res.body.errors[0]).toHaveProperty(
+      'msg',
+      'Username must be at least 3 characters.'
+    );
   });
 
   it('should reject short password', async () => {
@@ -38,7 +49,10 @@ describe('Signup validation middleware', () => {
     });
 
     expect(res.statusCode).toBe(400);
-    expect(res.body.errors[0]).toHaveProperty('msg', 'Password must be at least 6 characters.');
+    expect(res.body.errors[0]).toHaveProperty(
+      'msg',
+      'Password must be at least 6 characters.'
+    );
   });
 
   it('should reject missing fields', async () => {
@@ -47,8 +61,12 @@ describe('Signup validation middleware', () => {
     expect(res.statusCode).toBe(400);
     expect(res.body.errors).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ msg: 'Username must be at least 3 characters.' }),
-        expect.objectContaining({ msg: 'Password must be at least 6 characters.' }),
+        expect.objectContaining({
+          msg: 'Username must be at least 3 characters.',
+        }),
+        expect.objectContaining({
+          msg: 'Password must be at least 6 characters.',
+        }),
       ])
     );
   });

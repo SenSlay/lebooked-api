@@ -1,7 +1,13 @@
 import express from 'express';
 import request from 'supertest';
 import prisma from '../../lib/prisma';
-import { getCartItems, addToCart, updateCartItemQuantity, icrementCartItemQuantity, decrementCartItemQuantity, } from '../../controllers/cartController';
+import {
+  getCartItems,
+  addToCart,
+  updateCartItemQuantity,
+  icrementCartItemQuantity,
+  decrementCartItemQuantity,
+} from '../../controllers/cartController';
 
 // Mock prisma methods
 jest.mock('../../lib/prisma', () => ({
@@ -127,9 +133,9 @@ describe('Cart Controller', () => {
   describe('updateCartItemQuantity', () => {
     it('should update quantity if input is valid', async () => {
       mockUpdate.mockResolvedValue({});
-  
+
       const res = await request(app).put('/cart/5').send({ quantity: 4 });
-  
+
       expect(mockUpdate).toHaveBeenCalledWith({
         where: { userId_bookId: { userId: 1, bookId: 5 } },
         data: { quantity: 4 },
@@ -137,13 +143,13 @@ describe('Cart Controller', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toEqual({ message: 'Item quantity updated' });
     });
-  
+
     it('should return 400 for invalid bookId', async () => {
       const res = await request(app).put('/cart/invalid').send({ quantity: 4 });
       expect(res.statusCode).toBe(400);
       expect(res.body).toEqual({ error: 'Invalid bookId' });
     });
-  
+
     it('should return 500 on DB error', async () => {
       mockUpdate.mockRejectedValue(new Error('DB error'));
       const res = await request(app).put('/cart/5').send({ quantity: 4 });
@@ -151,13 +157,13 @@ describe('Cart Controller', () => {
       expect(res.body).toEqual({ error: 'Internal server error' });
     });
   });
-  
+
   describe('icrementCartItemQuantity', () => {
     it('should increment quantity', async () => {
       mockUpdate.mockResolvedValue({});
-  
+
       const res = await request(app).patch('/cart/3/increment');
-  
+
       expect(mockUpdate).toHaveBeenCalledWith({
         where: { userId_bookId: { userId: 1, bookId: 3 } },
         data: { quantity: { increment: 1 } },
@@ -165,13 +171,13 @@ describe('Cart Controller', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toEqual({ message: 'Item quantity incremented' });
     });
-  
+
     it('should return 400 for invalid bookId', async () => {
       const res = await request(app).patch('/cart/invalid/increment');
       expect(res.statusCode).toBe(400);
       expect(res.body).toEqual({ error: 'Invalid bookId' });
     });
-  
+
     it('should return 500 on DB error', async () => {
       mockUpdate.mockRejectedValue(new Error('DB error'));
       const res = await request(app).patch('/cart/3/increment');
@@ -179,14 +185,14 @@ describe('Cart Controller', () => {
       expect(res.body).toEqual({ error: 'Internal server error' });
     });
   });
-  
+
   describe('decrementCartItemQuantity', () => {
     it('should decrement quantity if above 1', async () => {
       mockFindUnique.mockResolvedValue({ quantity: 2 });
       mockUpdate.mockResolvedValue({});
-  
+
       const res = await request(app).patch('/cart/3/decrement');
-  
+
       expect(mockUpdate).toHaveBeenCalledWith({
         where: { userId_bookId: { userId: 1, bookId: 3 } },
         data: { quantity: { decrement: 1 } },
@@ -194,26 +200,28 @@ describe('Cart Controller', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toEqual({ message: 'Item quantity decremented' });
     });
-  
+
     it('should return 400 if quantity is 1 or less', async () => {
       mockFindUnique.mockResolvedValue({ quantity: 1 });
-  
+
       const res = await request(app).patch('/cart/3/decrement');
       expect(res.statusCode).toBe(400);
-      expect(res.body).toEqual({ error: 'Cannot decrement below 1. Use remove instead.' });
+      expect(res.body).toEqual({
+        error: 'Cannot decrement below 1. Use remove instead.',
+      });
     });
-  
+
     it('should return 404 if cart item not found', async () => {
       mockFindUnique.mockResolvedValue(null);
-  
+
       const res = await request(app).patch('/cart/3/decrement');
       expect(res.statusCode).toBe(404);
       expect(res.body).toEqual({ error: 'Cart item not found' });
     });
-  
+
     it('should return 500 on DB error', async () => {
       mockFindUnique.mockRejectedValue(new Error('DB error'));
-  
+
       const res = await request(app).patch('/cart/3/decrement');
       expect(res.statusCode).toBe(500);
       expect(res.body).toEqual({ error: 'Internal server error' });

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import prisma from "../lib/prisma";
+import prisma from '../lib/prisma';
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -24,8 +24,8 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     }
 
     const token = jwt.sign(
-      { id: user.id, username: user.username }, 
-      process.env.JWT_SECRET as string, 
+      { id: user.id, username: user.username },
+      process.env.JWT_SECRET as string,
       { expiresIn: '1h' }
     );
 
@@ -66,8 +66,8 @@ export const signup = async (req: Request, res: Response): Promise<any> => {
     });
 
     const token = jwt.sign(
-      { id: user.id, username: user.username }, 
-      process.env.JWT_SECRET as string, 
+      { id: user.id, username: user.username },
+      process.env.JWT_SECRET as string,
       { expiresIn: '1h' }
     );
 

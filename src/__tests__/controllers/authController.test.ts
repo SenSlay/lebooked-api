@@ -46,7 +46,11 @@ describe('Auth Controller', () => {
     it('should signup a new user', async () => {
       mockFindUnique.mockResolvedValue(null);
       (bcrypt.hash as jest.Mock).mockResolvedValue('hashedpass');
-      mockCreate.mockResolvedValue({ id: 1, username: 'testuser', password: 'hashedpass' });
+      mockCreate.mockResolvedValue({
+        id: 1,
+        username: 'testuser',
+        password: 'hashedpass',
+      });
       (jwt.sign as jest.Mock).mockReturnValue('fake-jwt-token');
 
       const res = await request(app).post('/signup').send({

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 
 export interface AuthPayload {
@@ -9,17 +9,24 @@ export interface AuthPayload {
   exp: number;
 }
 
-export const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
+export const verifyToken = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): any => {
   const authHeader = req.headers['authorization'];
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     res.status(401).json({ message: 'Unauthorized' });
-    return 
+    return;
   }
   const token = authHeader.split(' ')[1];
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as AuthPayload;
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET as string
+    ) as AuthPayload;
     req.user = decoded; // Attach the decoded token to the request object
     next();
   } catch (error) {
@@ -28,10 +35,14 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction): an
   }
 };
 
-export const isAdmin = (req: Request, res: Response, next: NextFunction): any => {
+export const isAdmin = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): any => {
   if (req.user?.username !== 'admin') {
     return res.status(403).json({ message: 'Access denied.' });
   }
 
-  next(); 
+  next();
 };

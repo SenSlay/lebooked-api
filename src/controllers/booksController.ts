@@ -1,6 +1,6 @@
-import { Request, Response } from "express"
-import { fetchGoogleThumbnail } from "../utils/fetchGoogleThumbnail";
-import prisma from "../lib/prisma";
+import { Request, Response } from 'express';
+import { fetchGoogleThumbnail } from '../utils/fetchGoogleThumbnail';
+import prisma from '../lib/prisma';
 
 // Function to fetch books from the database with pagination, search, and filtering
 export const getBooks = async (req: Request, res: Response): Promise<any> => {
@@ -24,20 +24,24 @@ export const getBooks = async (req: Request, res: Response): Promise<any> => {
               { author: { contains: search, mode: 'insensitive' } },
             ],
           },
-          genre ? {
-            genres: {
-              some: {
-                name: { equals: genre, mode: 'insensitive' },
-              },
-            },
-          } : {},
-          tag ? {
-            tags: {
-              some: {
-                name: { equals: tag, mode: 'insensitive' },
-              },
-            },
-          } : {},
+          genre
+            ? {
+                genres: {
+                  some: {
+                    name: { equals: genre, mode: 'insensitive' },
+                  },
+                },
+              }
+            : {},
+          tag
+            ? {
+                tags: {
+                  some: {
+                    name: { equals: tag, mode: 'insensitive' },
+                  },
+                },
+              }
+            : {},
         ],
       },
       include: {
@@ -60,20 +64,24 @@ export const getBooks = async (req: Request, res: Response): Promise<any> => {
               { author: { contains: search, mode: 'insensitive' } },
             ],
           },
-          genre ? {
-            genres: {
-              some: {
-                name: { equals: genre, mode: 'insensitive' },
-              },
-            },
-          } : {},
-          tag ? {
-            tags: {
-              some: {
-                name: { equals: tag, mode: 'insensitive' },
-              },
-            },
-          } : {},
+          genre
+            ? {
+                genres: {
+                  some: {
+                    name: { equals: genre, mode: 'insensitive' },
+                  },
+                },
+              }
+            : {},
+          tag
+            ? {
+                tags: {
+                  some: {
+                    name: { equals: tag, mode: 'insensitive' },
+                  },
+                },
+              }
+            : {},
         ],
       },
     });
@@ -93,26 +101,29 @@ export const getBooks = async (req: Request, res: Response): Promise<any> => {
   }
 };
 
-export const getBookById = async (req: Request, res: Response): Promise<any> => {
+export const getBookById = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
   const { id } = req.params;
   try {
     const book = await prisma.book.findUnique({
       where: { id: Number(id) },
     });
     if (!book) {
-      return res.status(404).json({ error: "Book not found" });
+      return res.status(404).json({ error: 'Book not found' });
     }
     res.json(book);
   } catch (error) {
-    console.error("Error fetching book:", error);
-    res.status(500).json({ error: "Error fetching book" });
+    console.error('Error fetching book:', error);
+    res.status(500).json({ error: 'Error fetching book' });
   }
 };
 
 export const createBook = async (req: Request, res: Response): Promise<any> => {
   try {
     const { title, author, description, price, genres, tags } = req.body;
-    
+
     let imageUrl = req.body.imageUrl;
     if (!imageUrl) {
       imageUrl = await fetchGoogleThumbnail(title, author);
@@ -132,12 +143,15 @@ export const createBook = async (req: Request, res: Response): Promise<any> => {
 
     res.json(newBook);
   } catch (error) {
-    console.error("Error creating book:", error);
-    res.status(500).json({ error: "Error creating book" });
+    console.error('Error creating book:', error);
+    res.status(500).json({ error: 'Error creating book' });
   }
 };
 
-export const deleteBook = async (req: Request, res: Response): Promise<void> => {
+export const deleteBook = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const { id } = req.params;
     const deletedBook = await prisma.book.delete({
@@ -145,7 +159,7 @@ export const deleteBook = async (req: Request, res: Response): Promise<void> => 
     });
     res.json(deletedBook);
   } catch (error) {
-    console.error("Error deleting book:", error);
-    res.status(500).json({ error: "Error deleting book" });
+    console.error('Error deleting book:', error);
+    res.status(500).json({ error: 'Error deleting book' });
   }
 };

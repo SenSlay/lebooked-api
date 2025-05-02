@@ -68,12 +68,18 @@ describe('Books Controller', () => {
 
     it('should return books filtered by genre', async () => {
       mockFindMany.mockResolvedValue([
-        { id: 1, title: 'Book A', author: 'Author A', genres: [{ name: 'Fantasy' }], tags: [] }
+        {
+          id: 1,
+          title: 'Book A',
+          author: 'Author A',
+          genres: [{ name: 'Fantasy' }],
+          tags: [],
+        },
       ]);
       mockCount.mockResolvedValue(1);
-    
+
       const res = await request(app).get('/books').query({ genre: 'Fantasy' });
-    
+
       expect(res.statusCode).toBe(200);
       expect(mockFindMany).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -92,27 +98,39 @@ describe('Books Controller', () => {
       );
       expect(res.body.data[0].genres[0].name).toBe('Fantasy');
     });
-    
+
     it('should return books filtered by tag', async () => {
       mockFindMany.mockResolvedValue([
-        { id: 2, title: 'Tagged Book', author: 'Author B', genres: [], tags: [{ name: 'Bestseller' }] }
+        {
+          id: 2,
+          title: 'Tagged Book',
+          author: 'Author B',
+          genres: [],
+          tags: [{ name: 'Bestseller' }],
+        },
       ]);
       mockCount.mockResolvedValue(1);
-    
+
       const res = await request(app).get('/books').query({ tag: 'Bestseller' });
-    
+
       expect(res.statusCode).toBe(200);
       expect(res.body.data[0].tags[0].name).toBe('Bestseller');
     });
-    
+
     it('should return books matching search term in title or author', async () => {
       mockFindMany.mockResolvedValue([
-        { id: 3, title: 'Amazing Book', author: 'John Doe', genres: [], tags: [] }
+        {
+          id: 3,
+          title: 'Amazing Book',
+          author: 'John Doe',
+          genres: [],
+          tags: [],
+        },
       ]);
       mockCount.mockResolvedValue(1);
-    
+
       const res = await request(app).get('/books').query({ search: 'Amazing' });
-    
+
       expect(res.statusCode).toBe(200);
       expect(res.body.data[0].title).toMatch(/amazing/i);
     });
@@ -156,8 +174,14 @@ describe('Books Controller', () => {
   describe('createBook', () => {
     it('should create a book with a generated image URL', async () => {
       const mockThumbnail = 'http://example.com/image.jpg';
-      (fetchModule.fetchGoogleThumbnail as jest.Mock).mockResolvedValue(mockThumbnail);
-      mockCreate.mockResolvedValue({ id: 1, title: 'Book A', imageUrl: mockThumbnail });
+      (fetchModule.fetchGoogleThumbnail as jest.Mock).mockResolvedValue(
+        mockThumbnail
+      );
+      mockCreate.mockResolvedValue({
+        id: 1,
+        title: 'Book A',
+        imageUrl: mockThumbnail,
+      });
 
       const res = await request(app).post('/books').send({
         title: 'Book A',
@@ -188,9 +212,11 @@ describe('Books Controller', () => {
       });
 
       expect(res.statusCode).toBe(200);
-      expect(mockCreate).toHaveBeenCalledWith(expect.objectContaining({
-        data: expect.objectContaining({ imageUrl }),
-      }));
+      expect(mockCreate).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({ imageUrl }),
+        })
+      );
     });
 
     it('should handle creation errors', async () => {

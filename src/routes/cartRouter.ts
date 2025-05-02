@@ -1,10 +1,17 @@
 import { Router } from 'express';
 import { verifyToken } from '../middlewares/auth';
-import { addToCart, decrementCartItemQuantity, getCartItems, icrementCartItemQuantity, removeCartItem, updateCartItemQuantity } from '../controllers/cartController';
+import {
+  addToCart,
+  decrementCartItemQuantity,
+  getCartItems,
+  icrementCartItemQuantity,
+  removeCartItem,
+  updateCartItemQuantity,
+} from '../controllers/cartController';
 
 const cartRouter = Router();
 
-cartRouter.use(verifyToken)
+cartRouter.use(verifyToken);
 
 cartRouter.get('/', getCartItems);
 cartRouter.post('/', addToCart);

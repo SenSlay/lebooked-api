@@ -36,7 +36,10 @@ describe('auth middleware', () => {
 
       verifyToken(req as Request, res as Response, next as NextFunction);
 
-      expect(jwt.verify).toHaveBeenCalledWith('validtoken', process.env.JWT_SECRET);
+      expect(jwt.verify).toHaveBeenCalledWith(
+        'validtoken',
+        process.env.JWT_SECRET
+      );
       expect(req.user).toEqual(mockPayload);
       expect(next).toHaveBeenCalled();
     });

@@ -1,17 +1,19 @@
 import express from 'express';
 const app = express();
 import cors from 'cors';
-import "dotenv/config";
+import 'dotenv/config';
 import booksRouter from './routes/booksRouter.js';
 import authRouter from './routes/authRouter.js';
 import cartRouter from './routes/cartRouter.js';
 import tagsRouter from './routes/tagsRouter.js';
 import genresRouter from './routes/genresRouter.js';
 
-app.use(cors({
-  origin: process.env.CLIENT_ORIGIN,
-  credentials: true,
-}));;
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN,
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -15,15 +15,17 @@ async function main() {
   await prisma.user.deleteMany();
   await prisma.$executeRawUnsafe(`ALTER SEQUENCE "User_id_seq" RESTART WITH 1`);
   await prisma.$executeRawUnsafe(`ALTER SEQUENCE "Book_id_seq" RESTART WITH 1`);
-  await prisma.$executeRawUnsafe(`ALTER SEQUENCE "Genre_id_seq" RESTART WITH 1`);
+  await prisma.$executeRawUnsafe(
+    `ALTER SEQUENCE "Genre_id_seq" RESTART WITH 1`
+  );
   await prisma.$executeRawUnsafe(`ALTER SEQUENCE "Tag_id_seq" RESTART WITH 1`);
 
   // Create Admin user with hashed password
-  const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD!, 10); 
+  const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD!, 10);
   await prisma.user.create({
     data: {
-      username: process.env.ADMIN_USERNAME!, 
-      password: hashedPassword,  
+      username: process.env.ADMIN_USERNAME!,
+      password: hashedPassword,
     },
   });
 
@@ -34,7 +36,7 @@ async function main() {
         data: { name: genre },
       })
     )
-  )
+  );
 
   // Seed tags
   await Promise.all(
@@ -48,17 +50,16 @@ async function main() {
   await Promise.all(
     books.map(async (book) => {
       try {
-
         const imageUrl = await fetchGoogleThumbnail(book.title, book.author);
-        
+
         const genreRecords = await prisma.genre.findMany({
           where: { name: { in: book.genres } },
         });
-        
+
         const tagRecords = await prisma.tag.findMany({
           where: { name: { in: book.tags } },
         });
-        
+
         await prisma.book.create({
           data: {
             title: book.title,
