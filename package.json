@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test && jest",
     "build": "tsc",
     "start": "node ./dist/index.js",
     "start:dev": "nodemon",
@@ -35,5 +35,8 @@
     "ts-jest": "^29.3.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
   }
 }
