@@ -18,6 +18,9 @@ export const getCartItems = async (
       include: {
         book: true,
       },
+      orderBy: {
+        updatedAt: 'desc', 
+      },
     });
 
     res.json(cartItems);
@@ -101,14 +104,19 @@ export const updateCartItemQuantity = [
 
       const { quantity } = req.body;
 
-      await prisma.userBook.update({
+      await prisma.userBook.upsert({
         where: {
           userId_bookId: {
             userId: userId,
             bookId: bookId,
           },
         },
-        data: {
+        update: {
+          quantity: quantity,
+        },
+        create: {
+          userId: userId,
+          bookId: bookId,
           quantity: quantity,
         },
       });
