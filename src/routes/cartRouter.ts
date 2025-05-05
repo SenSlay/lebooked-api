@@ -14,7 +14,7 @@ const cartRouter = Router();
 cartRouter.use(verifyToken);
 
 cartRouter.get('/', getCartItems);
-cartRouter.post('/', addToCart);
+cartRouter.post('/:bookId', addToCart);
 cartRouter.put('/:bookId', updateCartItemQuantity);
 cartRouter.patch('/:bookId/increment', icrementCartItemQuantity);
 cartRouter.patch('/:bookId/decrement', decrementCartItemQuantity);
