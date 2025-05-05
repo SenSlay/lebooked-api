@@ -49,6 +49,7 @@ model UserBook {
   userId   Int
   bookId   Int
   quantity Int @default(1)
+  updatedAt DateTime @updatedAt @default(now())
 
   user User @relation(fields: [userId], references: [id])
   book Book @relation(fields: [bookId], references: [id])
