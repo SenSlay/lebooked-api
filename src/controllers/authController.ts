@@ -26,7 +26,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     const token = jwt.sign(
       { id: user.id, username: user.username },
       process.env.JWT_SECRET as string,
-      { expiresIn: '1h' }
+      { expiresIn: '3h' }
     );
 
     res.json({
@@ -68,7 +68,7 @@ export const signup = async (req: Request, res: Response): Promise<any> => {
     const token = jwt.sign(
       { id: user.id, username: user.username },
       process.env.JWT_SECRET as string,
-      { expiresIn: '1h' }
+      { expiresIn: '3h' }
     );
 
     res.json({
