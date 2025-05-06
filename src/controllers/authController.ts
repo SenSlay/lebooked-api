@@ -5,7 +5,8 @@ import prisma from '../lib/prisma';
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { username, password } = req.body;
+    const { password } = req.body;
+    const username = req.body.username.toLowerCase();
 
     const user = await prisma.user.findUnique({
       where: { username },
@@ -45,7 +46,8 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
 export const signup = async (req: Request, res: Response): Promise<any> => {
   try {
-    const { username, password } = req.body;
+    const { password } = req.body;
+    const username = req.body.username.toLowerCase();
 
     const existingUser = await prisma.user.findUnique({
       where: { username },
