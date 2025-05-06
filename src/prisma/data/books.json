@@ -4,16 +4,16 @@
     "author": "James Clear",
     "description": "A guide to building better habits and improving everyday life.",
     "price": 14.99,
-    "genres": ["Self Help"],
-    "tags": ["Motivation"]
+    "genres": ["Self Help", "Non-Fiction"],
+    "tags": ["Motivation", "Lifestyle"]
   },
   {
     "title": "The Lean Startup",
     "author": "Eric Ries",
     "description": "How today’s entrepreneurs use continuous innovation to create successful businesses.",
     "price": 18.99,
-    "genres": ["Business", "Technology"],
-    "tags": ["Bestseller", "Trending"]
+    "genres": ["Business", "Non-Fiction"],
+    "tags": ["Bestseller", "Technology", "Trending"]
   },
   {
     "title": "1984",
@@ -28,8 +28,8 @@
     "author": "Walter Isaacson",
     "description": "The authorized biography of Steve Jobs.",
     "price": 22.99,
-    "genres": ["Biography", "Technology"],
-    "tags": ["Trending"]
+    "genres": ["Biography", "Non-fiction", "Business"],
+    "tags": ["Trending", "Technology"]
   },
   {
     "title": "The Hobbit",
@@ -45,7 +45,7 @@
     "description": "A romantic novel of manners.",
     "price": 9.99,
     "genres": ["Romance", "Historical"],
-    "tags": ["Lifestyle"]
+    "tags": ["Lifestyle", "Emotional"]
   },
   {
     "title": "The Da Vinci Code",
@@ -117,7 +117,7 @@
     "description": "A novel on racial injustice and moral growth.",
     "price": 11.99,
     "genres": ["Historical", "Fiction"],
-    "tags": ["Lifestyle"]
+    "tags": ["Emotional"]
   },
   {
     "title": "The Subtle Art of Not Giving a F*ck",
@@ -140,16 +140,16 @@
     "author": "Robert Kiyosaki",
     "description": "Personal finance lessons learned through two father figures.",
     "price": 10.99,
-    "genres": ["Business"],
-    "tags": ["Technology"]
+    "genres": ["Self Help", "Business", "Non-Fiction"],
+    "tags": ["Motivation", "Financial Literacy", "Bestseller"]
   },
   {
     "title": "The 5 AM Club",
     "author": "Robin Sharma",
     "description": "The power of starting your day early for success.",
     "price": 14.79,
-    "genres": ["Lifestyle", "Self Help"],
-    "tags": ["Motivation", "Health"]
+    "genres": ["Self Help", "Non-Fiction"],
+    "tags": ["Motivation", "Lifestyle"]
   },
   {
     "title": "The Alchemist",
@@ -205,7 +205,7 @@
     "description": "How great entrepreneurs build business and influence.",
     "price": 16.5,
     "genres": ["Business"],
-    "tags": ["Motivation"]
+    "tags": ["Motivation", "Bestseller"]
   },
   {
     "title": "Dune",
@@ -252,7 +252,7 @@
     "author": "Colleen Hoover",
     "description": "A suspenseful romance filled with secrets and manipulation.",
     "price": 10.99,
-    "genres": ["Romance", "Thriller"],
+    "genres": ["Romance", "Thriller", "Mystery"],
     "tags": ["Bestseller"]
   },
   {
