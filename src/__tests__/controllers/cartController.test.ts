@@ -18,6 +18,7 @@ jest.mock('../../lib/prisma', () => ({
       findUnique: jest.fn(),
       create: jest.fn(),
       update: jest.fn(),
+      upsert: jest.fn()
     },
   },
 }));
@@ -26,6 +27,7 @@ const mockFindMany = prisma.userBook.findMany as jest.Mock;
 const mockFindUnique = prisma.userBook.findUnique as jest.Mock;
 const mockCreate = prisma.userBook.create as jest.Mock;
 const mockUpdate = prisma.userBook.update as jest.Mock;
+const mockUpsert = prisma.userBook.upsert as jest.Mock;
 
 // Express app setup
 const app = express();
@@ -132,14 +134,16 @@ describe('Cart Controller', () => {
 
   describe('updateCartItemQuantity', () => {
     it('should update quantity if input is valid', async () => {
-      mockUpdate.mockResolvedValue({});
+      mockUpsert.mockResolvedValue({});
 
       const res = await request(app).put('/cart/5').send({ quantity: 4 });
 
-      expect(mockUpdate).toHaveBeenCalledWith({
+      expect(mockUpsert).toHaveBeenCalledWith({
         where: { userId_bookId: { userId: 1, bookId: 5 } },
-        data: { quantity: 4 },
+        update: { quantity: 4 },
+        create: { userId: 1, bookId: 5, quantity: 4 },
       });
+      
       expect(res.statusCode).toBe(200);
       expect(res.body).toEqual({ message: 'Item quantity updated' });
     });
@@ -151,7 +155,7 @@ describe('Cart Controller', () => {
     });
 
     it('should return 500 on DB error', async () => {
-      mockUpdate.mockRejectedValue(new Error('DB error'));
+      mockUpsert.mockRejectedValue(new Error('DB error'));
       const res = await request(app).put('/cart/5').send({ quantity: 4 });
       expect(res.statusCode).toBe(500);
       expect(res.body).toEqual({ error: 'Internal server error' });
