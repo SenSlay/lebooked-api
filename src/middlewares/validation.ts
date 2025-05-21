@@ -16,6 +16,23 @@ export const validateSignup = [
     .withMessage('Password must be at least 6 characters.'),
 ];
 
+export const validateAIQuery = [
+  body('messages')
+    .isArray()
+    .withMessage('messages must be an array.'),
+
+  body('messages.*.role')
+    .isIn(['user', 'assistant'])
+    .withMessage('Each message role must be either "user" or "assistant".'),
+
+  body('messages.*.content')
+    .isString()
+    .notEmpty()
+    .withMessage('Each message must have non-empty content.')
+    .isLength({ min: 1, max: 300 })
+    .withMessage('Message content must be between 1 and 300 characters.')
+];
+
 export const handleValidationErrors = (
   req: Request,
   res: Response,
