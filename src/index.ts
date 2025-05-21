@@ -7,10 +7,11 @@ import authRouter from './routes/authRouter.js';
 import cartRouter from './routes/cartRouter.js';
 import tagsRouter from './routes/tagsRouter.js';
 import genresRouter from './routes/genresRouter.js';
+import assistantRouter from './routes/assistantRouter.js';
 
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN,
+    origin: [process.env.CLIENT_ORIGIN, 'http://192.168.254.107:5173', 'http://192.168.0.52:5173'],
     credentials: true,
   })
 );
@@ -23,6 +24,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/genres', genresRouter);
 app.use('/api/tags', tagsRouter);
+app.use('/api/assistant', assistantRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
