@@ -13,3 +13,4 @@ The github repo of [LeBooked-Store](https://github.com/SenSlay/lebooked-store).
 - **PostgreSQL**
 - **RESTful API**
 - **SuperTest**
+- **OpenRouter AI Integration**
