@@ -11,7 +11,7 @@ import assistantRouter from './routes/assistantRouter.js';
 
 app.use(
   cors({
-    origin: [process.env.CLIENT_ORIGIN, 'http://192.168.254.107:5173', 'http://192.168.0.52:5173'],
+    origin: [process.env.CLIENT_ORIGIN],
     credentials: true,
   })
 );
